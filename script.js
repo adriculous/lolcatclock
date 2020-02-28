@@ -1,22 +1,24 @@
-var time = new Date().getHours();
-var messageText;
-var catPic;
 var noon = 12;
 var evening = 18; // 6PM
 var wakeupTime = 9; // 9AM
 var lunchTime = 12; // 12PM
 var partyTime = 17; // 5PM
 var napTime = lunchTime + 2; // 2PM
-var message = document.getElementById('timeEvent');
-var isPartyTime = false;
-var partyCats = document.getElementById("partyCats");
+var time = new Date().getHours();
+
 var partyTimeButton = document.getElementById("partyTimeButton");
+var isPartyTime = false;
 var wakeUpTimeSelector = document.getElementById("wakeUpTimeSelector");
 var lunchTimeSelector = document.getElementById("lunchTimeSelector");
 var napTimeSelector = document.getElementById("napTimeSelector");
 
 var updateClock = function() {
-	if (time == partyTime) {
+    var message = document.getElementById('timeEvent');
+    var lolcat = document.getElementById('lolcat'); // images
+    var messageText;
+    var catPic = "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/08/wakeUpTime.jpg";
+
+	if (time == partyTime){
 	catPic = "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/08/partyTime.jpg";
     messageText = "IZ PARTEE TIME!!";
 } else if (time == napTime) {
@@ -39,6 +41,7 @@ var updateClock = function() {
     messageText = "Good afternoon!";
 }
 message.innerText = messageText;
+lolcat.src = catPic;
 
 var showCurrentTime = function()
 {
