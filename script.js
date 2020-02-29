@@ -13,8 +13,8 @@ var lunchTimeSelector = document.getElementById("lunchTimeSelector");
 var napTimeSelector = document.getElementById("napTimeSelector");
 
 var updateClock = function() {
-    var message = document.getElementById('timeEvent');
     var lolcat = document.getElementById('lolcat'); // images
+    var message = document.getElementById('timeEvent');
     var messageText;
     var catPic = "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/08/wakeUpTime.jpg";
 
@@ -31,17 +31,16 @@ var updateClock = function() {
 	catPic = "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/cat1.jpg";
     messageText = "IZ TIME TO GETTUP.";
 } else if (time < noon) {
-	catPic = "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/cat5.jpg";
-    messageText = "Good morning!";
+	messageText = "Good morning!";
 } else if (time > evening) {
-	catPic = "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/cat5.jpg";
-    messageText = "Good Evening!";
+	messageText = "Good Evening!";
 } else {
-	catPic = "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/cat5.jpg";
-    messageText = "Good afternoon!";
+	messageText = "Good afternoon!";
 }
-message.innerText = messageText;
-lolcat.src = catPic;
+  message.innerText = messageText;
+  lolcat.src = catPic;
+  showCurrentTime();
+};
 
 var showCurrentTime = function()
 {
@@ -82,8 +81,7 @@ var showCurrentTime = function()
  
     clock.innerText = clockTime;
 };
-showCurrentTime();
-};
+
 updateClock();
 
 var oneSecond = 1000;
